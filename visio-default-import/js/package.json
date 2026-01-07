@@ -1,0 +1,20 @@
+{
+  "name": "joint-visio-default-import",
+  "version": "4.2.2",
+  "license": "http://jointjs.com/license",
+  "description": "JointJS+ Visio Default Import",
+  "main": "index.html",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@joint/plus": "^4.2.2",
+    "@joint/format-visio": "^4.2.2"
+  },
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}
