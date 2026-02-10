@@ -1,6 +1,6 @@
 import { dia, shapes, util, ui, g } from '@joint/plus';
 
-import '@joint/plus/build/joint-plus.css';
+import '@joint/plus/joint-plus.css';
 import './styles.css';
 
 const paperContainerEl = document.getElementById('paper-container');

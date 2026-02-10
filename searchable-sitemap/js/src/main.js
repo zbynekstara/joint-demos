@@ -2,7 +2,7 @@ import { util, dia, shapes, ui, highlighters, layout } from '@joint/plus';
 import './styles.scss';
 
 // Asset imports
-import assetSitemap_xml from '../assets/data/sitemap.xml';
+import assetSitemapXmlString from '../assets/data/sitemap.xml?raw';
 
 const INITIAL_NODE = 'www.jointjs.com';
 const COLORS = {
@@ -134,12 +134,9 @@ function generateElements(map, parentId, parentColor, depth = 0, opt = {}) {
 }
 
 async function setupGraph() {
-    const response = await fetch(assetSitemap_xml);
-    const xmlString = await response.text();
 
     const parser = new DOMParser();
-
-    const xml = parser.parseFromString(xmlString, 'text/xml');
+    const xml = parser.parseFromString(assetSitemapXmlString, 'text/xml');
     const urlElements = xml.getElementsByTagName('url');
     const urlMap = {};
 
