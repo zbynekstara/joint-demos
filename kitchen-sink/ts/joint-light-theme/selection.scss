@@ -7,11 +7,11 @@
     }
 
     .handle.rotate {
-        background-image: url(/assets/selection/icon-rotate.svg);
+        background-image: url(../assets/selection/icon-rotate.svg);
     }
 
     .handle.resize {
-        background-image: url(/assets/selection/icon-resize.svg);
+        background-image: url(../assets/selection/icon-resize.svg);
 
         &.se {
             cursor: se-resize

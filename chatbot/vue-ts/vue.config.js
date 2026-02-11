@@ -13,6 +13,7 @@ const path = require('path');
 process.env.VUE_CLI_TEST = false;
 
 module.exports = {
+    publicPath: './',
     configureWebpack: {
         resolve: {
             extensions: ['.scss'],

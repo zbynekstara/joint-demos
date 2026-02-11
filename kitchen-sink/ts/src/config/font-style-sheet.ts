@@ -9,9 +9,9 @@ https://www.jointjs.com/license or from the JointJS+ archive as was
 distributed by client IO. See the LICENSE file.
 */
 
-const OPEN_SANS_URL = '/assets/fonts/OpenSans.ttf';
-const DM_SANS_URL = '/assets/fonts/DMSans.ttf';
-const ROBOTO_FLEX_URL = '/assets/fonts/RobotoFlex.ttf';
+const OPEN_SANS_URL = './assets/fonts/OpenSans.ttf';
+const DM_SANS_URL = './assets/fonts/DMSans.ttf';
+const ROBOTO_FLEX_URL = './assets/fonts/RobotoFlex.ttf';
 
 function base64convert(file: Blob): Promise<string> {
     return new Promise((resolve, reject) => {

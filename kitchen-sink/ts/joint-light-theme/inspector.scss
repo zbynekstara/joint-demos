@@ -47,7 +47,7 @@
             &::before {
                 @include group-icon;
                 // Overwriting the inspector layout
-                content: url(/assets/inspector/icon-opened.svg) !important;
+                content: url(../assets/inspector/icon-opened.svg) !important;
             }
 
             &:hover {
