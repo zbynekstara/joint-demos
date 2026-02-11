@@ -32,7 +32,7 @@ for demo_dir in */; do
 
     # Detect build tool and set flags for relative asset paths
     build_flags="--mode=production"
-    if grep -q '"vite build"' "$build_dir/package.json" 2>/dev/null; then
+    if grep -q 'vite build' "$build_dir/package.json" 2>/dev/null; then
         build_flags="--base=./ --mode=production"
     fi
 
