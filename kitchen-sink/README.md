@@ -6,10 +6,10 @@ This demo is also available online at [jointjs.com](https://jointjs.com/demos/ki
 
 ## Available Versions
 
-- [Angular](./angular/)
 - [JavaScript](./js/)
-- [ReactJS](./react/js/)
-- [ReactTS](./react/ts/)
 - [TypeScript](./ts/)
+- [Angular](./angular/)
+- [ReactJS](./react-js/)
+- [ReactTS](./react-ts/)
 - [VueJS](./vue-js/)
 - [VueTS](./vue-ts/)
