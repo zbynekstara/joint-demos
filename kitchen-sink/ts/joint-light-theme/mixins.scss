@@ -23,7 +23,7 @@ $group-transition-duration: 0.3s;
 }
 
 @mixin dropdown-icon(
-    $path: '/assets/inspector/icon-arrow-down.svg',
+    $path: '../assets/inspector/icon-arrow-down.svg',
     $icon-width: 10px,
     $icon-height: 6px
 ) {
@@ -213,7 +213,7 @@ $group-transition-duration: 0.3s;
         }
 
         &:checked:after {
-            content: url('/assets/widgets/icon-checkbox-tick.svg');
+            content: url('../assets/widgets/icon-checkbox-tick.svg');
             text-align: center;
         }
     }

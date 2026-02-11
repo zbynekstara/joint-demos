@@ -67,7 +67,7 @@ body {
     .joint-widget {
 
         &[data-name="select-file"]::before {
-            content: url('/assets/toolbar/icon-file.svg');
+            content: url('../assets/toolbar/icon-file.svg');
         }
 
         &[data-name^="select"] {
@@ -85,7 +85,7 @@ body {
             font-weight: 600;
 
             &::after {
-                content: url('/assets/toolbar/icon-dropdown.svg');
+                content: url('../assets/toolbar/icon-dropdown.svg');
                 margin-left: 8px;
             }
         }
@@ -94,7 +94,7 @@ body {
             margin-left: 4px;
 
             &::before {
-                content: url('/assets/toolbar/icon-share.svg');
+                content: url('../assets/toolbar/icon-share.svg');
             }
         }
     }

@@ -56,13 +56,13 @@ $inspector-vertical-padding: 8px;
 
             &.open-groups-btn {
                 &::before {
-                    background-image: url(/assets/inspector/icon-expand.svg);
+                    background-image: url(../assets/inspector/icon-expand.svg);
                 }
             }
 
             &.close-groups-btn {
                 &::before {
-                    background-image: url(/assets/inspector/icon-collapse.svg);
+                    background-image: url(../assets/inspector/icon-collapse.svg);
                 }
             }
         }

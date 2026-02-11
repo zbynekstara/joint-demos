@@ -28,14 +28,14 @@
     &[data-name="undo"] {
 
         &::before {
-            content: url('/assets/widgets/icon-undo.svg');
+            content: url('../assets/widgets/icon-undo.svg');
         }
     }
 
     &[data-name="redo"] {
 
         &::before {
-            content: url('/assets/widgets/icon-redo.svg');
+            content: url('../assets/widgets/icon-redo.svg');
         }
     }
 

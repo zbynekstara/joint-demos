@@ -4,8 +4,6 @@ This application showcases the JointJS+ plugins in action and shows how the plug
 can be combined together. You can use this demo app as a reference for your own application
 development.
 
-The application logic is written using [React](https://reactjs.org/) and [TypeScript](https://www.typescriptlang.org/) and built with [Vite](https://vite.dev/guide/). The JointJS library itself is written in JS.
-
 This demo is also available online at [jointjs.com](https://jointjs.com/demos/kitchen-sink).
 
 ## How to download this demo
