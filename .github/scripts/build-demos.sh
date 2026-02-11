@@ -6,6 +6,19 @@ FAILED=()
 BUILT=()
 SKIPPED=()
 
+# Read per-demo config from demos.config.json (if it exists)
+CONFIG_FILE="demos.config.json"
+demo_config() {
+    local demo="$1" field="$2"
+    if [[ -f "$CONFIG_FILE" ]]; then
+        node -e "
+            const cfg = require('./$CONFIG_FILE');
+            const val = (cfg.demos && cfg.demos['$demo'] && cfg.demos['$demo']['$field']);
+            if (val !== undefined && val !== null) process.stdout.write(String(val));
+        " 2>/dev/null || true
+    fi
+}
+
 rm -rf "$SITE_DIR"
 mkdir -p "$SITE_DIR"
 
@@ -17,23 +30,47 @@ for demo_dir in */; do
         .* | _site | node_modules) continue ;;
     esac
 
-    # Pick version: ts/ preferred, then js/, then react-ts/, else skip
-    if [[ -d "$demo_dir/ts" ]]; then
-        build_dir="$demo_dir/ts"
-    elif [[ -d "$demo_dir/js" ]]; then
-        build_dir="$demo_dir/js"
-    elif [[ -d "$demo_dir/vue-ts" ]]; then
-        build_dir="$demo_dir/vue-ts"
-    else
-        echo ":: Skipping $demo_name (no ts/, js/, or vue-ts/ subdirectory)"
+    # Check demos.config.json for skip flag
+    if [[ "$(demo_config "$demo_name" skip)" == "true" ]]; then
+        echo ":: Skipping $demo_name (skip=true in demos.config.json)"
         SKIPPED+=("$demo_name")
         continue
+    fi
+
+    # Check demos.config.json for variant override, else use default fallback
+    config_variant="$(demo_config "$demo_name" variant)"
+    if [[ -n "$config_variant" ]]; then
+        if [[ -d "$demo_dir/$config_variant" ]]; then
+            build_dir="$demo_dir/$config_variant"
+        else
+            echo ":: WARNING: $demo_name variant '$config_variant' not found, falling back to default"
+            config_variant=""
+        fi
+    fi
+
+    if [[ -z "$config_variant" ]]; then
+        # Default fallback: ts/ → js/, else skip
+        if [[ -d "$demo_dir/ts" ]]; then
+            build_dir="$demo_dir/ts"
+        elif [[ -d "$demo_dir/js" ]]; then
+            build_dir="$demo_dir/js"
+        else
+            echo ":: Skipping $demo_name (no ts/ or js/ subdirectory — add a variant to demos.config.json)"
+            SKIPPED+=("$demo_name")
+            continue
+        fi
     fi
 
     # Detect build tool and set flags for relative asset paths
     build_flags="--mode=production"
     if grep -q 'vite build' "$build_dir/package.json" 2>/dev/null; then
         build_flags="--base=./ --mode=production"
+    fi
+
+    # Append extra build flags from config
+    config_build_flags="$(demo_config "$demo_name" buildFlags)"
+    if [[ -n "$config_build_flags" ]]; then
+        build_flags="$build_flags $config_build_flags"
     fi
 
     echo ":: Building $demo_name from $build_dir ($build_flags)"

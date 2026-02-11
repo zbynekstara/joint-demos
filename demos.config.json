@@ -1,0 +1,10 @@
+{
+  "demos": {
+    "bpmn-camunda-integration": {
+      "skip": true
+    },
+    "chatbot": {
+      "variant": "vue-ts"
+    }
+  }
+}
