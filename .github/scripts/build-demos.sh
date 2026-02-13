@@ -94,6 +94,31 @@ for demo_dir in */; do
     fi
 done
 
+# Generate index.html
+INDEX_FILE="$SITE_DIR/index.html"
+cat > "$INDEX_FILE" <<'HEADER'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JointJS Demos</title>
+</head>
+<body>
+    <h1>JointJS Demos</h1>
+    <ul>
+HEADER
+
+for demo in "${BUILT[@]}"; do
+    echo "        <li><a href=\"./$demo/\">$demo</a></li>" >> "$INDEX_FILE"
+done
+
+cat >> "$INDEX_FILE" <<'FOOTER'
+    </ul>
+</body>
+</html>
+FOOTER
+
 echo ""
 echo "=== Build summary ==="
 echo "Built: ${#BUILT[@]} demos"
