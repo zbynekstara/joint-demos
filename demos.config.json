@@ -5,6 +5,9 @@
     },
     "chatbot": {
       "variant": "vue-ts"
+    },
+    "framework-element-view": {
+      "variant": "angular"
     }
   }
 }
