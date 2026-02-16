@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Usage: build-demos.sh [demo-name]
+# When demo-name is provided, only that demo is built.
+# When omitted, all demos are built.
+FILTER="${1:-}"
+
 SITE_DIR="_site"
 FAILED=()
 BUILT=()
@@ -29,6 +34,11 @@ for demo_dir in */; do
     case "$demo_name" in
         .* | _site | node_modules) continue ;;
     esac
+
+    # If a filter is provided, skip non-matching demos
+    if [[ -n "$FILTER" && "$demo_name" != "$FILTER" ]]; then
+        continue
+    fi
 
     # Check demos.config.json for skip flag
     if [[ "$(demo_config "$demo_name" skip)" == "true" ]]; then

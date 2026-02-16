@@ -79,3 +79,4 @@ Override build flags (e.g. for Angular projects that don't accept `--mode`):
 
 - [`demos.config.json`](../../demos.config.json) — the config file
 - [`.github/scripts/build-demos.sh`](../scripts/build-demos.sh) — the build script that reads it
+- [`.github/docs/build-demos.md`](./build-demos.md) — documentation for the build script
