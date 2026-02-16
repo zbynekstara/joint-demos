@@ -55,6 +55,7 @@ Navigate to `http://localhost:4200/` in your browser.
 ## Built with
 
 - [JointJS+](https://www.jointjs.com/jointjs-plus) (`@joint/plus`)
+- [@joint/layout-directed-graph](https://www.npmjs.com/package/@joint/layout-directed-graph) — automatic directed graph layout
 - [Angular](https://angular.dev/) 19+
 - [libavoid-js](https://github.com/Aksem/libavoid-js) — WASM build of the libavoid connector routing library
 
