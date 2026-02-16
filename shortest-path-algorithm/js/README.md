@@ -1,15 +1,15 @@
-# JointJS+: Dijkstra's Shortest Path (JavaScript) <a href="https://www.jointjs.com/jointjs-plus"><img src="../../jointjs-plus-badge.svg" alt="JointJS+" width="123" align="right" /></a>
+# JointJS+: Shortest Path Algorithm (JavaScript) <a href="https://www.jointjs.com/jointjs-plus"><img src="../../jointjs-plus-badge.svg" alt="JointJS+" width="123" align="right" /></a>
 
-Dijkstra's Shortest Path is a JointJS+ demo application that demonstrates how to find the shortest path efficiently in both directed and undirected graphs.
+The Shortest Path Algorithm demo demonstrates how to find the shortest path efficiently in both directed and undirected graphs.
 
-This demo is also available online at [jointjs.com](https://jointjs.com/demos/dijkstra).
+This demo is also available online at [jointjs.com](https://jointjs.com/demos/shortest-path-algorithm).
 
 ## How to download this demo
 
 You can download this demo using our [`@joint/cli` tool](https://www.npmjs.com/package/@joint/cli):
 
 ```bash
-npx @joint/cli download dijkstra/js
+npx @joint/cli download shortest-path-algorithm/js
 ```
 
 Alternatively, you can get the [copy of the repository](https://github.com/clientIO/joint-demos/archive/refs/heads/main.zip) from GitHub as usual.
