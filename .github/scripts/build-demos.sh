@@ -61,16 +61,14 @@ for demo_dir in */; do
         fi
     fi
 
-    # Detect build tool and set flags for relative asset paths
-    build_flags="--mode=production"
-    if grep -q 'vite build' "$build_dir/package.json" 2>/dev/null; then
-        build_flags="--base=./ --mode=production"
-    fi
-
-    # Append extra build flags from config
+    # Check for build flags override in config
     config_build_flags="$(demo_config "$demo_name" buildFlags)"
     if [[ -n "$config_build_flags" ]]; then
-        build_flags="$build_flags $config_build_flags"
+        build_flags="$config_build_flags"
+    elif grep -q 'vite build' "$build_dir/package.json" 2>/dev/null; then
+        build_flags="--base=./ --mode=production"
+    else
+        build_flags="--mode=production"
     fi
 
     echo ":: Building $demo_name from $build_dir ($build_flags)"

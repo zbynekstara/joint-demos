@@ -7,10 +7,12 @@
       "variant": "vue-ts"
     },
     "framework-element-view": {
-      "variant": "angular"
+      "variant": "angular",
+      "buildFlags": "--configuration production"
     },
-    "libavoid-routing": {
-      "variant": "angular"
+    "data-pipeline": {
+      "variant": "angular",
+      "buildFlags": "--configuration production"
     }
   }
 }
