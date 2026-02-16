@@ -19,6 +19,7 @@
     "noUnusedLocals": true,
     "skipLibCheck": false,
     "types": [],
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "noEmit": true
   }
 }
