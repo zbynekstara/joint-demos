@@ -25,6 +25,7 @@
     "@joint/layout-msagl": "4.2.3"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "9.0.1",
     "css-loader": "^6.8.1",
     "style-loader": "^3.3.3",
     "ts-loader": "^9.2.5",

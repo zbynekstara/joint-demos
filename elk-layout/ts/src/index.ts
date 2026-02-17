@@ -45,7 +45,7 @@ const init = () => {
 
     // Perform ELK layout
     const elk = new ELK({
-        workerUrl: '../node_modules/elkjs/lib/elk-worker.js',
+        workerUrl: './elk-worker.js',
     });
     elk.layout(getElkGraph(graph)).then((elkGraph: ElkGraph) => {
         updateGraph(elkGraph, graph);
