@@ -133,7 +133,7 @@ function checkSwimlaneDrop(swimlane, pool, x, y) {
             // Remove the swimlane if it is not embedded in any pool.
             swimlane.remove();
         }
-        return;
+        return undefined;
     }
     
     let compatibleSwimlane = swimlane;

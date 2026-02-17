@@ -1,4 +1,5 @@
 import { defaultAttrs, inspectorOptions } from '../shared-config';
+import type { AppearanceConfig } from '../shapes-typing';
 
 export const FlowLabels = {
     'flow.Sequence': 'Sequence Flow',
@@ -20,7 +21,7 @@ export const flowIconClasses = {
     CONDITIONAL: 'jj-bpmn-icon-condition-flow'
 };
 
-export const flowAppearanceConfig = {
+export const flowAppearanceConfig: AppearanceConfig = {
     groups: {
         style: {
             label: 'Style',

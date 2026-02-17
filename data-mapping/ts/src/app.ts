@@ -227,7 +227,7 @@ export const init = () => {
         showElementTools(elementView);
     });
 
-    paper.on('element:pointermove', function(view: dia.ElementView, evt: dia.Event, x: number, y: number) {
+    paper.on('element:pointermove', function(this: dia.Paper, view: dia.ElementView, evt: dia.Event, x: number, y: number) {
         const data = evt.data;
         let ghost = data.ghost;
         if (!ghost) {

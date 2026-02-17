@@ -50,7 +50,7 @@ export interface AppShape extends dia.Cell {
     getLabelEditorStyles?: (paper: dia.Paper) => Partial<CSSStyleDeclaration>;
 }
 
-interface AppearanceConfig {
+export interface AppearanceConfig {
     groups: Record<string, { label: string, index: number }>;
     inputs: Record<string, Record<string, any>>;
 }

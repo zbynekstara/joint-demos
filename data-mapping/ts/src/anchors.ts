@@ -1,7 +1,7 @@
 import type { dia, shapes } from '@joint/plus';
 import { g, anchors } from '@joint/plus';
 
-const mapping = function(view: dia.ElementView, magnet: SVGElement, ref: g.Point) {
+const mapping = function(this: dia.LinkView, view: dia.ElementView, magnet: SVGElement, ref: g.Point | SVGElement) {
     let anchor;
     const model = view.model as shapes.standard.HeaderedRecord;
     const bbox = view.getNodeUnrotatedBBox(magnet);
@@ -13,10 +13,12 @@ const mapping = function(view: dia.ElementView, magnet: SVGElement, ref: g.Point
     } else if (side === 'right') {
         anchor = bbox.rightMiddle();
     } else {
-        let refPoint = ref;
-        if (ref instanceof Element) {
+        let refPoint: g.Point;
+        if (ref instanceof SVGElement) {
             const refView = this.paper.findView(ref);
             refPoint = (refView) ? refView.getNodeBBox(ref).center(): new g.Point();
+        } else {
+            refPoint = ref as g.Point;
         }
         refPoint.rotate(center, angle);
         anchor = (refPoint.x <= (bbox.x + bbox.width / 2)) ? bbox.leftMiddle() : bbox.rightMiddle();

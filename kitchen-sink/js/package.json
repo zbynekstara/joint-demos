@@ -4,6 +4,7 @@
   "description": "The Kitchen Sink Application for JointJS+",
   "main": "index.html",
   "scripts": {
+    "build": "sass joint-light-theme/styles.scss:css/joint-light-theme.css && sass css/styles.scss:css/styles.css",
     "start": "concurrently --kill-others \"npx sass --watch joint-light-theme/styles.scss:css/joint-light-theme.css\" \"npx sass --watch css/styles.scss:css/styles.css\" \"node node_modules/live-server/live-server.js --cors\""
   },
   "author": "client IO",

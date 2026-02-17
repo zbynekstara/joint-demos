@@ -12,10 +12,10 @@ export class ToolbarService {
 
         this.toolbar = new ui.Toolbar({
             groups: groups,
-            el: element,
+            el: this.element,
             tools: tools,
             autoToggle: true,
-            references: { commandManager: cmd }
+            references: { commandManager: this.cmd }
         });
 
         this.fileTools = [
@@ -59,7 +59,7 @@ export class ToolbarService {
                     reader.onload = (evt) => {
                         let str = evt.target.result as string;
                         App.processor.reset();
-                        resetGraphFromFile(graph, JSON.parse(str));
+                        resetGraphFromFile(this.graph, JSON.parse(str));
 
                         this.cmd.reset();
                     };
@@ -70,7 +70,7 @@ export class ToolbarService {
 
             contextToolbar.on('action:save', () => {
                 contextToolbar.remove();
-                const str = JSON.stringify(getFileFromGraph(graph));
+                const str = JSON.stringify(getFileFromGraph(this.graph));
                 const bytes = new TextEncoder().encode(str);
                 const blob = new Blob([bytes], { type: 'application/json' });
                 const el = window.document.createElement('a');
@@ -83,7 +83,7 @@ export class ToolbarService {
 
             contextToolbar.on('action:new', () => {
                 contextToolbar.remove();
-                graph.resetCells([]);
+                this.graph.resetCells([]);
                 App.processor.reset();
                 this.cmd.reset();
             });

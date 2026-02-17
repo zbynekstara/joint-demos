@@ -14,10 +14,12 @@ const mapping = function (view, magnet, ref) {
         anchor = bbox.rightMiddle();
     }
     else {
-        let refPoint = ref;
-        if (ref instanceof Element) {
+        let refPoint;
+        if (ref instanceof SVGElement) {
             const refView = this.paper.findView(ref);
             refPoint = (refView) ? refView.getNodeBBox(ref).center() : new g.Point();
+        } else {
+            refPoint = ref;
         }
         refPoint.rotate(center, angle);
         anchor = (refPoint.x <= (bbox.x + bbox.width / 2)) ? bbox.leftMiddle() : bbox.rightMiddle();

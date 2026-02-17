@@ -21,7 +21,7 @@ export class BPMNLinkView extends dia.LinkView<AppLink> {
 
     changeStyle(linkType: LinkType): void {
         const { router, attrs } = PlaceholderAttributes[linkType];
-        const resetAttrs = {
+        const resetAttrs: dia.Cell.Selectors = {
             line: {
                 sourceMarker: null,
                 targetMarker: null,

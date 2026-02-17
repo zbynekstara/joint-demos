@@ -79,7 +79,7 @@ export class HorizontalPool extends shapes.bpmn2.HeaderedHorizontalPool implemen
         return this;
     }
 
-    getShapeList() {
+    getShapeList(): string[] {
         return [];
     }
 
@@ -167,7 +167,7 @@ export class VerticalPool extends shapes.bpmn2.HeaderedVerticalPool implements A
         return this;
     }
 
-    getShapeList() {
+    getShapeList(): string[] {
         return [];
     }
 
@@ -255,7 +255,7 @@ export class HorizontalSwimlane extends shapes.bpmn2.HorizontalSwimlane implemen
         return this;
     }
 
-    getShapeList() {
+    getShapeList(): string[] {
         return [];
     }
 
@@ -330,7 +330,7 @@ export class VerticalSwimlane extends shapes.bpmn2.VerticalSwimlane implements A
         return this;
     }
 
-    getShapeList() {
+    getShapeList(): string[] {
         return [];
     }
 
