@@ -26,10 +26,12 @@ module.exports = {
         ],
     },
     plugins: [
-        new CopyPlugin([
-            { from: './index.html', to: './' },
-            { from: './node_modules/elkjs/lib/elk-worker.js', to: './' }
-        ])
+        new CopyPlugin({
+            patterns: [
+                { from: './index.html', to: './' },
+                { from: './node_modules/elkjs/lib/elk-worker.js', to: './' }
+            ]
+        })
     ],
     devServer: {
         static: {
