@@ -1,0 +1,36 @@
+{
+  "name": "@joint/demo-msagl-layout-ts",
+  "version": "4.2.3",
+  "description": "JointJS - MSAGL Demo",
+  "main": "dist/bundle.js",
+  "author": {
+    "name": "client IO",
+    "url": "https://client.io"
+  },
+  "license": "http://jointjs.com/license",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "files": [
+    "src/",
+    "./index.html",
+    "./README.md",
+    "./tsconfig.json",
+    "./webpack.config.js"
+  ],
+  "dependencies": {
+    "@joint/core": "4.2.4",
+    "@joint/layout-msagl": "4.2.3"
+  },
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.2.5",
+    "typescript": "^5.7.3",
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.1"
+  }
+}
