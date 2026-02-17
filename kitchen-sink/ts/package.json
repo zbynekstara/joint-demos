@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@joint/layout-directed-graph": "4.2.3",
-    "@joint/plus": "4.2.2"
+    "@joint/plus": "4.2.3"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",

@@ -12,7 +12,7 @@
   "dependencies": {
     "@joint/format-bpmn-export": "4.2.2",
     "@joint/format-bpmn-import": "4.2.2",
-    "@joint/plus": "4.2.2",
+    "@joint/plus": "4.2.3",
     "monaco-editor": "^0.45.0"
   },
   "devDependencies": {
