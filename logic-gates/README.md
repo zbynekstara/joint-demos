@@ -1,7 +1,0 @@
-# JointJS: Logic Gates
-
-This demo simulates logic circuits with interactive AND, OR, NOT gates and signal propagation.
-
-## Available Versions
-
-- [JavaScript](./js/)
