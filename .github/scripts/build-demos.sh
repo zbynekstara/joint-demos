@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Usage: build-demos.sh [demo-name]
+# Usage: build-demos.sh [--force] [demo-name]
 # When demo-name is provided, only that demo is built.
 # When omitted, all demos are built.
-FILTER="${1:-}"
+# --force: continue building even if a demo fails (default: exit on first failure)
+FORCE=false
+FILTER=""
+for arg in "$@"; do
+    case "$arg" in
+        --force) FORCE=true ;;
+        *) FILTER="$arg" ;;
+    esac
+done
 
 SITE_DIR="_site"
 FAILED=()
@@ -93,12 +101,14 @@ for demo_dir in */; do
             BUILT+=("$demo_name")
             echo ":: Done $demo_name"
         else
-            echo ":: WARNING: $demo_name built but no dist/ found"
+            echo ":: FAILED: $demo_name built but no dist/ found"
             FAILED+=("$demo_name")
+            if [[ "$FORCE" != true ]]; then exit 1; fi
         fi
     else
-        echo ":: WARNING: $demo_name build failed, continuing..."
+        echo ":: FAILED: $demo_name build failed"
         FAILED+=("$demo_name")
+        if [[ "$FORCE" != true ]]; then exit 1; fi
     fi
 done
 
@@ -139,4 +149,8 @@ if [[ ${#SKIPPED[@]} -gt 0 ]]; then
     echo "Skipped: ${#SKIPPED[@]} demos: ${SKIPPED[*]}"
 else
     echo "Skipped: 0"
+fi
+
+if [[ ${#FAILED[@]} -gt 0 ]]; then
+    exit 1
 fi

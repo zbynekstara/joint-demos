@@ -5,11 +5,14 @@ Build script that compiles demos and assembles them into a `_site/` directory fo
 ## Usage
 
 ```bash
-# Build all demos
+# Build all demos (stops on first failure)
 bash .github/scripts/build-demos.sh
 
 # Build a single demo
 bash .github/scripts/build-demos.sh data-pipeline
+
+# Build all demos, continuing past failures
+bash .github/scripts/build-demos.sh --force
 ```
 
 ## How it works
@@ -26,6 +29,13 @@ bash .github/scripts/build-demos.sh data-pipeline
 5. Copies `dist/` output into `_site/<demo-name>/`
 6. Generates an `_site/index.html` with links to all built demos
 7. Prints a summary of built, failed, and skipped demos
+8. Exits with code 1 if any demo failed. By default the script stops on the first failure; use `--force` to build all demos before exiting
+
+## Options
+
+| Flag | Description |
+|------|-------------|
+| `--force` | Continue building remaining demos when a build fails. Without this flag the script exits on the first failure. |
 
 ## Environment variables
 
